@@ -6,6 +6,7 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import java.util.Calendar
 
 class MainActivity : AppCompatActivity() {
 
@@ -13,6 +14,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var btnSaludar: Button
     lateinit var btnLimpiar: Button
     lateinit var etNombre: EditText
+    lateinit var etApellido: EditText
     lateinit var tvSaludo: TextView
     lateinit var tvMensaje: TextView
 
@@ -27,21 +29,28 @@ class MainActivity : AppCompatActivity() {
         btnSaludar = findViewById(R.id.btnSaludar)
         btnLimpiar = findViewById(R.id.btnLimpiar)
         etNombre = findViewById(R.id.etNombre)
+        etApellido = findViewById(R.id.etApellido)
         tvSaludo = findViewById(R.id.tvSaludo)
         tvMensaje = findViewById(R.id.tvMensaje)
 
-        // Inicializar TextViews vacíos
         tvSaludo.text = ""
         tvMensaje.text = ""
 
         // 5. Listeners de los botones
         btnSaludar.setOnClickListener {
             val nombre = etNombre.text.toString().trim()
-            if (nombre.isEmpty()) {
-                mostrarToast("Error, el campo nombre esta vacio.")
+            val apellido = etApellido.text.toString().trim()
+
+            if (nombre.isEmpty() || apellido.isEmpty()) {
+                mostrarToast("Error, los campos nombre y apellido estan vacios.")
             } else {
-                val saludo = "Hola, $nombre"
+                val nombreCompleto = "$nombre $apellido"
+                val calendar = Calendar.getInstance()
+                val hora = calendar.get(Calendar.HOUR_OF_DAY)
+                val esDia = hora in 6..17
+                val saludo = if (esDia) "Hola buenos días, $nombreCompleto" else "Hola buenas noches, $nombreCompleto"
                 val mensaje = "Bienvenido al laboratorio 2 de DSM441."
+
                 tvSaludo.text = saludo
                 tvMensaje.text = mensaje
                 mostrarToast("Saludo generado exitosamente")
@@ -50,6 +59,7 @@ class MainActivity : AppCompatActivity() {
 
         btnLimpiar.setOnClickListener {
             etNombre.text.clear()
+            etApellido.text.clear()
             tvSaludo.text = ""
             tvMensaje.text = ""
             etNombre.requestFocus()

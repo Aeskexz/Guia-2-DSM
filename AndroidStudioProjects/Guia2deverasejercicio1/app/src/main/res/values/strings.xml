@@ -2,6 +2,7 @@
     <string name="app_name">Guia2deverasejercicio1</string>
     <string name="text_tvTitulo">Saludo Personalizado</string>
     <string name="hint_etNombre">Ingresa tu nombre</string>
+    <string name="hint_etApellido">Ingresa tu apellido</string>
     <string name="btn_saludar">Saludar</string>
     <string name="btn_limpiar">Limpiar</string>
 </resources>
