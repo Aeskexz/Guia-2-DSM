@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">MiCalculadora</string>
+    <string name="text_tvTitulo">Calculadora</string>
+    <string name="hint_etNumero1">Ingresa el primer número</string>
+    <string name="hint_etNumero2">Ingresa el segundo número</string>
+    <string name="btn_suma">+</string>
+    <string name="btn_resta">-</string>
+    <string name="btn_multiplicacion">×</string>
+    <string name="btn_division">÷</string>
+    <string name="btn_porcentaje">%</string>
+    <string name="btn_cuadrado">x²</string>
+    <string name="btn_raiz">√</string>
+    <string name="btn_limpiar">Limpiar todo</string>
+    <string name="text_resultado">Resultado: 0.0</string>
+    <string name="text_historial">Historial:</string>
+</resources>
